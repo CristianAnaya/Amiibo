@@ -1,0 +1,12 @@
+/* 
+  AmiiboLocalizable.strings
+  Domain
+
+  Created by Cristian David Anaya Alba - Ceiba Software on 20/06/23.
+  
+*/
+
+"amiiboListUnexpectedError" = "An error occurred while getting the amiibo list, please try again.";
+"amiiboDetailUnexpectedError" = "An error occurred while getting the details, please try again.";
+"amiiboNotFound" = "The amiibo doesn't exist.";
+"amiiboFavoriteListEmpty" = "The amiibo favorite list is empty";

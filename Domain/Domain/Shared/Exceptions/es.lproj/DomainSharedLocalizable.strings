@@ -1,0 +1,9 @@
+/* 
+  DomainSharedLocalizable.strings
+  Domain
+
+  Created by Cristian David Anaya Alba - Ceiba Software on 20/06/23.
+  
+*/
+
+"emptyParam" = "Se produjo un error inesperado, por favor inténtalo de nuevo.";
