@@ -23,11 +23,9 @@ public class AmiiboDao: BaseDao {
         return Future<[AmiiboEntity], Error> { promise in
             self.context.perform {
                 do {
-                    guard let entityName = T.entity().name else {
-                        throw TechnicalException.technicalError
-                    }
-                    let request = NSFetchRequest<T>(entityName: entityName)
-                    let results = try self.context.fetch(request)
+                    let fetchRequest: NSFetchRequest<AmiiboEntity> = AmiiboEntity.fetchRequest()
+                    fetchRequest.relationshipKeyPathsForPrefetching = ["amiiboRelease"]
+                    let results = try self.context.fetch(fetchRequest)
                     promise(.success(results))
                 } catch {
                     self.context.rollback()
@@ -38,19 +36,19 @@ public class AmiiboDao: BaseDao {
         .eraseToAnyPublisher()
     }
     
-    func fetchOne(id: Int) -> AnyPublisher<AmiiboEntity?, Error> {
-        return Future<AmiiboEntity?, Error> { promise in
+    func delete(head: String, tail: String) -> AnyPublisher<Void, Error> {
+        let fetchRequest: NSFetchRequest<AmiiboEntity> = AmiiboEntity.fetchRequest()
+        fetchRequest.predicate = NSPredicate(format: "head == %@ AND tail == %@", head, tail)
+        fetchRequest.fetchLimit = 1
+        return Future<Void, Error> { promise in
             self.context.perform {
                 do {
-                    guard let entityName = T.entity().name else {
-                        throw TechnicalException.technicalError
+                    let results = try self.context.fetch(fetchRequest)
+                    if let amiibo = results.first {
+                        self.context.delete(amiibo)
+                        try self.context.save()
                     }
-                    let request = NSFetchRequest<T>(entityName: entityName)
-                    let predicate = NSPredicate(format: "id == %d", id)
-                    request.predicate = predicate
-                    request.fetchLimit = 1
-                    let results = try self.context.fetch(request)
-                    promise(.success(results.first))
+                    promise(.success(()))
                 } catch {
                     self.context.rollback()
                     promise(.failure(error))
@@ -60,63 +58,20 @@ public class AmiiboDao: BaseDao {
         .eraseToAnyPublisher()
     }
     
-    func count() -> AnyPublisher<Int, Error> {
-        return Future<Int, Error> { promise in
+    func insertAll(data: AmiiboEntity) -> AnyPublisher<Void, Error> {
+        return Future<Void, Error> { promise in
             self.context.perform {
                 do {
-                    guard let entityName = T.entity().name else {
-                        throw TechnicalException.technicalError
-                    }
-                    let request = NSFetchRequest<T>(entityName: entityName)
-                    let count = try self.context.count(for: request)
-                    promise(.success(count))
+                    self.context.insert(data)
+                    try self.context.save()
+                    promise(.success(()))
                 } catch {
+                    self.context.rollback()
                     promise(.failure(error))
                 }
             }
-        }.eraseToAnyPublisher()
-    }
-    
-    func count(predicate: NSPredicate) -> AnyPublisher<Int, Error> {
-        return Future<Int, Error> { promise in
-            self.context.perform {
-                do {
-                    guard let entityName = T.entity().name else {
-                        throw TechnicalException.technicalError
-                    }
-                    let request = NSFetchRequest<T>(entityName: entityName)
-                    request.predicate = predicate
-                    let count = try self.context.count(for: request)
-                    promise(.success(count))
-                } catch {
-                    promise(.failure(error))
-                }
-            }
-            
-        }.eraseToAnyPublisher()
-    }
-    
-    func delete(_ object: AmiiboEntity) throws {
-        try context.performAndWait {
-            do {
-                self.context.delete(object)
-                try self.context.save()
-            } catch {
-                self.context.rollback()
-                throw error
-            }
         }
-    }
-    
-    func insertAll(data: [AmiiboEntity]) throws {
-        try context.performAndWait {
-            do {
-                try self.context.save()
-            } catch {
-                self.context.rollback()
-                throw error
-            }
-        }
+        .eraseToAnyPublisher()
     }
     
 }

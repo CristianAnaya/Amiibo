@@ -12,6 +12,6 @@ import Domain
 
 public protocol AmiiboLocalRepository {
     func getFavoriteAmiiboList() throws -> AnyPublisher<[Amiibo], Error>
-    func insertMovies(data: Amiibo) throws
-    func deleteFavoriteAmiibo(id: String)
+    func insertAmiibo(data: Amiibo) -> AnyPublisher<Void, Error>
+    func deleteFavoriteAmiibo(head: String, tail: String) -> AnyPublisher<Void, Error>
 }

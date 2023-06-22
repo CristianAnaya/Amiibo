@@ -8,23 +8,20 @@
 import Foundation
 
 public enum AmiiboException: Error, LocalizedError, Equatable {
-    case amiiboListUnexpectedError
-    case amiiboDetailUnexpectedError
+    case emptyAmiiboList
     case amiiboNotFound
-    case amiiboFavoriteListEmpty
+    case emptyAmiiboFavoriteList
     
     private static let amiiboLocalizable = "AmiiboLocalizable"
     
     public var errorDescription: String? {
         switch self {
-        case .amiiboListUnexpectedError:
-            return "amiiboFavoriteListEmpty".localized(tableName: AmiiboException.amiiboLocalizable)
-        case .amiiboDetailUnexpectedError:
-            return "amiiboDetailUnexpectedError".localized(tableName: AmiiboException.amiiboLocalizable)
+        case .emptyAmiiboList:
+            return "emptyAmiiboList".localized(tableName: AmiiboException.amiiboLocalizable)
         case .amiiboNotFound:
             return "amiiboNotFound".localized(tableName: AmiiboException.amiiboLocalizable)
-        case .amiiboFavoriteListEmpty:
-            return "amiiboFavoriteListEmpty".localized(tableName: AmiiboException.amiiboLocalizable)
+        case .emptyAmiiboFavoriteList:
+            return "emptyAmiiboFavoriteList".localized(tableName: AmiiboException.amiiboLocalizable)
         }
     }
 }

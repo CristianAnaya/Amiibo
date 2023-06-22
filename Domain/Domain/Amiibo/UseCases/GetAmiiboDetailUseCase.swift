@@ -15,7 +15,14 @@ public class GetAmiiboDetailUseCase {
         self.amiiboRepository = amiiboRepository
     }
     
-    public func invoke(head: String, tail: String)  {
-        
+    public func invoke(head: String, tail: String) -> AnyPublisher<Amiibo?, Error>  {
+        return amiiboRepository.getDetail(head: head, tail: tail)
+            .flatMap { amiibo -> AnyPublisher<Amiibo?, Error> in
+                guard amiibo != nil else {
+                    return Fail(error: AmiiboException.amiiboNotFound).eraseToAnyPublisher()
+                }
+                return Just(amiibo).setFailureType(to: Error.self).eraseToAnyPublisher()
+            }
+            .eraseToAnyPublisher()
     }
 }

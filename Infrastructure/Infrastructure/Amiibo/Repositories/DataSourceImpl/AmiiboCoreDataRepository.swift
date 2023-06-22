@@ -18,15 +18,26 @@ class AmiiboCoreDataRepository: AmiiboLocalRepository {
     }
     
     func getFavoriteAmiiboList() throws -> AnyPublisher<[Amiibo], Error> {
-        <#code#>
+        return amiiboDao.fetchAll()
+            .tryMap { amiiboEntities -> [Amiibo] in
+                return try amiiboEntities.map {
+                    do {
+                        return try AmiiboMapper.fromEntityToDomain(amiiboEntity: $0)
+                    } catch {
+                        throw error
+                    }
+                }
+            }
+            .eraseToAnyPublisher()
     }
     
-    func insertMovies(data: Amiibo) throws {
-        <#code#>
+    func insertAmiibo(data: Amiibo) -> AnyPublisher<Void, Error> {
+        let amiiboEntity = AmiiboMapper.fromDomainToEntity(amiibo: data, context: amiiboDao.context)
+        return amiiboDao.insertAll(data: amiiboEntity)
     }
     
-    func deleteFavoriteAmiibo(id: String) {
-        <#code#>
+    func deleteFavoriteAmiibo(head: String, tail: String) -> AnyPublisher<Void, Error> {
+        return amiiboDao.delete(head: head, tail: tail)
     }
 
 }

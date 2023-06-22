@@ -9,7 +9,9 @@ import Foundation
 import Combine
 
 public protocol AmiiboRepository {
-    func getDetail(id: Int) -> AnyPublisher<Amiibo?, Error>
+    func getDetail(head: String, tail: String) -> AnyPublisher<Amiibo?, Error>
     func getAmiiboList() -> AnyPublisher<[Amiibo], Error>
-    func getFavoriteAmiiboList() -> AnyPublisher<[Amiibo], Error>
+    func getFavoriteAmiiboList() throws -> AnyPublisher<[Amiibo], Error>
+    func saveFavorite(amiibo: Amiibo) -> AnyPublisher<Void, Error>
+    func deleteFavorite(head: String, tail: String) throws -> AnyPublisher<Void, Error>
 }

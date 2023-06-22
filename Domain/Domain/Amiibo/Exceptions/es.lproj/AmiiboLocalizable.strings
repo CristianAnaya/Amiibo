@@ -6,7 +6,6 @@
   
 */
 
-"amiiboListUnexpectedError" = "Ocurrió un error al obtener la lista de amiibo, intentalo nuevamente.";
-"amiiboDetailUnexpectedError" = "Ocurrió un error al obtener los detalles, intentalo nuevamente.";
+"emptyAmiiboList" = "No hay amiibos para mostrar.";
 "amiiboNotFound" = "El amiibo no existe.";
-"amiiboFavoriteListEmpty" = "La lista de favoritos de amiibo está vacía.";
+"emptyAmiiboFavoriteList" = "No tienes agregado amiibos favoritos.";

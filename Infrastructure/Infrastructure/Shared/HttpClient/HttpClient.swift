@@ -28,8 +28,8 @@ final class HttpClient {
     ) -> AnyPublisher<T, HttpClientException> {
         let headers = HTTPHeaders(request.httpHeaders)
         let method = request.httpMethod
-        
-        return session.request(request.enpoint, method: method, parameters: request.params, headers: headers)
+        print("DEBUG: \(request.endpoint) - \(headers) - \(method)")
+        return session.request(request.endpoint, method: method, parameters: request.params, headers: headers)
             .validate()
             .response { result in
                 debugPrint(result)
@@ -43,6 +43,7 @@ final class HttpClient {
     }
     
     private func evaluateError(_ error: AFError) -> HttpClientException {
+        print("ERROR: \(error)")
         if let code = error.responseCode {
             return HttpClientException(errorCode: code)
         } else {

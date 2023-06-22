@@ -11,5 +11,5 @@ import Domain
 
 public protocol AmiiboRemoteRepository {
     func getAmiiboList() throws -> AnyPublisher<[Amiibo], Error>
-    func getAmiiboDetail() throws -> AnyPublisher<Amiibo?, Error>
+    func getAmiiboDetail(head: String, tail: String) throws -> AnyPublisher<Amiibo?, Error>
 }

@@ -82,13 +82,13 @@
 		EA4B10DB2A424A7000E56F7B /* Amiibo */ = {
 			isa = PBXGroup;
 			children = (
-				EA4B10DC2A424A7000E56F7B /* AppDelegate.swift */,
-				EA4B10DE2A424A7000E56F7B /* SceneDelegate.swift */,
+				EA4B10EA2A424A7300E56F7B /* Info.plist */,
+				EAB442652A43451400997003 /* App */,
+				EAB442662A43452700997003 /* Amiibo */,
 				EA4B10E02A424A7000E56F7B /* ViewController.swift */,
 				EA4B10E22A424A7000E56F7B /* Main.storyboard */,
 				EA4B10E52A424A7300E56F7B /* Assets.xcassets */,
 				EA4B10E72A424A7300E56F7B /* LaunchScreen.storyboard */,
-				EA4B10EA2A424A7300E56F7B /* Info.plist */,
 			);
 			path = Amiibo;
 			sourceTree = "<group>";
@@ -100,6 +100,142 @@
 				EA4B113A2A4253C800E56F7B /* Domain.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		EAB442652A43451400997003 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				EA4B10DC2A424A7000E56F7B /* AppDelegate.swift */,
+				EA4B10DE2A424A7000E56F7B /* SceneDelegate.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		EAB442662A43452700997003 /* Amiibo */ = {
+			isa = PBXGroup;
+			children = (
+				EAB442692A43454500997003 /* Detail */,
+				EAB442682A43453E00997003 /* Favorites */,
+				EAB442672A43453500997003 /* List */,
+			);
+			path = Amiibo;
+			sourceTree = "<group>";
+		};
+		EAB442672A43453500997003 /* List */ = {
+			isa = PBXGroup;
+			children = (
+				EAB442732A43461C00997003 /* DependencyAssembler */,
+				EAB442722A4345F900997003 /* Delegate */,
+				EAB442712A4345F300997003 /* ViewModel */,
+				EAB442702A4345E900997003 /* View */,
+			);
+			path = List;
+			sourceTree = "<group>";
+		};
+		EAB442682A43453E00997003 /* Favorites */ = {
+			isa = PBXGroup;
+			children = (
+				EAB442742A43462300997003 /* DependencyAssembler */,
+				EAB4426F2A4345C400997003 /* Delegate */,
+				EAB4426E2A4345BF00997003 /* ViewModel */,
+				EAB4426D2A4345B700997003 /* View */,
+			);
+			path = Favorites;
+			sourceTree = "<group>";
+		};
+		EAB442692A43454500997003 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				EAB442752A43462A00997003 /* DependencyAssembler */,
+				EAB4426C2A4345B000997003 /* Delegate */,
+				EAB4426B2A43457D00997003 /* ViewModel */,
+				EAB4426A2A43457700997003 /* View */,
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
+		EAB4426A2A43457700997003 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		EAB4426B2A43457D00997003 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		EAB4426C2A4345B000997003 /* Delegate */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Delegate;
+			sourceTree = "<group>";
+		};
+		EAB4426D2A4345B700997003 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		EAB4426E2A4345BF00997003 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		EAB4426F2A4345C400997003 /* Delegate */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Delegate;
+			sourceTree = "<group>";
+		};
+		EAB442702A4345E900997003 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		EAB442712A4345F300997003 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		EAB442722A4345F900997003 /* Delegate */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Delegate;
+			sourceTree = "<group>";
+		};
+		EAB442732A43461C00997003 /* DependencyAssembler */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = DependencyAssembler;
+			sourceTree = "<group>";
+		};
+		EAB442742A43462300997003 /* DependencyAssembler */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = DependencyAssembler;
+			sourceTree = "<group>";
+		};
+		EAB442752A43462A00997003 /* DependencyAssembler */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = DependencyAssembler;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

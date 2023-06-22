@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct Amiibo {
+public struct Amiibo: Equatable {
     public let head: String
     public let tail: String
     public let name: String
@@ -47,4 +47,14 @@ public struct Amiibo {
         try ArgumentValidator.validateEmptyParam(value: self.image)
     }
     
+    public static func == (lhs: Amiibo, rhs: Amiibo) -> Bool {
+        return lhs.head == rhs.head &&
+            lhs.tail == rhs.tail &&
+            lhs.name == rhs.name &&
+            lhs.amiiboSeries == rhs.amiiboSeries &&
+            lhs.type == rhs.type &&
+            lhs.image == rhs.image &&
+            lhs.character == rhs.character &&
+            lhs.release == rhs.release
+    }
 }
