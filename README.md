@@ -53,7 +53,7 @@ Para la base de datos se usó CoreData ya que es una biblioteca de persistencias
 ### [Swinject](https://github.com/Swinject/Swinject) - Inyección de dependencias
 Para realizar la inyección de dependencias se usó la librería Injectable la cual proporciona una forma de usar la inyección de dependencias.
 Swinject funciona con el sistema de tipos genéricos Swift y funciones de primera clase para definir las dependencias de su aplicación de manera simple y fluida.
-### [Storyboard]https://developer.apple.com/library/archive/documentation/General/Conceptual/Devpedia-CocoaApp/Storyboard.html) - Para creacion de las vistas
+### [Storyboard](https://developer.apple.com/library/archive/documentation/General/Conceptual/Devpedia-CocoaApp/Storyboard.html) - Para creacion de las vistas
 Utilizado para el diseño de la interfaz de usuario utilizando la representación visual de las pantallas y la gestión de las transiciones entre ellas..
 ### [Combine](https://developer.apple.com/documentation/combine) - Reactividad
 Combine es un marco para escribir código reactivo, es una libria propia de apple. El marco Combine proporciona una API Swift declarativa, permitiendo trabajar con eventos asíncronos de forma más simplificada.
