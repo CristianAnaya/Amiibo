@@ -57,7 +57,7 @@ class AmiiboDetailViewController: UIViewController {
             }
             .store(in: &viewModel.cancellables)
         
-        viewModel?.$errorMessage
+        viewModel?.$message
             .receive(on: DispatchQueue.main)
             .sink { [weak self] errorMessage in
                 guard let message = errorMessage else { return }

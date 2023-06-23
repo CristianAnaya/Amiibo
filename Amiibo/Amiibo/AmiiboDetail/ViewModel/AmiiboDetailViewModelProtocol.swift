@@ -11,7 +11,7 @@ import Domain
 protocol AmiiboDetailViewModelProtocol {
     var isLoading: Bool { get }
     var amiibo: Amiibo? { get }
-    var errorMessage: String? { get }
+    var message: String? { get }
     
     func saveAmiibo()
     func fetchAmiibo()

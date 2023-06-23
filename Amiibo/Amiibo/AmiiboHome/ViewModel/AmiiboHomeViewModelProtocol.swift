@@ -14,5 +14,6 @@ protocol AmiiboHomeViewModelProtocol {
     var errorMessage: String? { get }
 
     func fetchAmiiboList()
+    func filterAmiiboByType(type: String)
 }
 

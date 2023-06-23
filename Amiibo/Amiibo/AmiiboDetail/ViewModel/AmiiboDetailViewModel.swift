@@ -20,7 +20,7 @@ final class AmiiboDetailViewModel: AmiiboDetailViewModelProtocol {
     
     @Published var isLoading: Bool = false
     @Published var amiibo: Amiibo?
-    @Published var errorMessage: String? = nil
+    @Published var message: String? = nil
     
     init(
         getAmiiboDetailUseCase: GetAmiiboDetailUseCase,
@@ -28,7 +28,6 @@ final class AmiiboDetailViewModel: AmiiboDetailViewModelProtocol {
         head: String,
         tail: String
     ) {
-        print("DEBUG 2: \(head), \(tail)")
         self.getAmiiboDetailUseCase = getAmiiboDetailUseCase
         self.saveAmiiboFavoriteUseCase = saveAmiiboFavoriteUseCase
         self.head = head
@@ -44,7 +43,7 @@ final class AmiiboDetailViewModel: AmiiboDetailViewModelProtocol {
                 self.isLoading = false
                 
                 if case let .failure(error) = completion {
-                    self.errorMessage = error.localizedDescription
+                    self.message = error.localizedDescription
                 }
             } receiveValue: { [weak self] result in
                 guard let self = self else { return }
@@ -58,7 +57,7 @@ final class AmiiboDetailViewModel: AmiiboDetailViewModelProtocol {
     
     func saveAmiibo() {
         guard let amiibo = amiibo else {
-            errorMessage = "No hay un Amiibo válido"
+            message = "No hay un Amiibo válido"
             return
         }
 
@@ -71,9 +70,9 @@ final class AmiiboDetailViewModel: AmiiboDetailViewModelProtocol {
                  
                  switch completion {
                  case .failure(let error):
-                     self.errorMessage = error.localizedDescription
+                     self.message = error.localizedDescription
                  case .finished:
-                     self.errorMessage = "Se guardo correctamente" 
+                     self.message = "Se guardó correctamente" 
                      break
                  }
              }, receiveValue: { _ in })

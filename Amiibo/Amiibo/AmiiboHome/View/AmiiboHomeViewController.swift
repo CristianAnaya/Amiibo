@@ -20,6 +20,7 @@ class AmiiboHomeViewController: UIViewController {
         super.viewDidLoad()
         tableView.dataSource = self
         tableView.delegate = self
+        tableView.accessibilityIdentifier = "amiiboTableView"
         searchTextField.delegate = self
         viewModel.fetchAmiiboList()
         bindViewModel()
