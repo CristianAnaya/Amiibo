@@ -14,12 +14,17 @@ class MockAmiiboRemoteRepository: AmiiboRemoteRepository {
   
     var getDetailReturnValue: AnyPublisher<Amiibo?, Error>!
     var getAmiiboListReturnValue: AnyPublisher<[Amiibo], Error>!
-    
+    var filterAmiiboByTypeReturnValue: AnyPublisher<[Amiibo], Error>!
+
     func getAmiiboList() throws -> AnyPublisher<[Amiibo], Error> {
         return getAmiiboListReturnValue
     }
     
     func getAmiiboDetail(head: String, tail: String) throws -> AnyPublisher<Amiibo?, Error> {
         return getDetailReturnValue
+    }
+    
+    func filterAmiiboByType(type: String) -> AnyPublisher<[Domain.Amiibo], Error> {
+        return filterAmiiboByTypeReturnValue
     }
 }

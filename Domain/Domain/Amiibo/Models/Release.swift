@@ -20,23 +20,23 @@ public struct Release: Equatable {
         self.na = na
     }
     
-    public var formattedAU: String? {
+    public var formattedAU: String {
         return formatDate(au)
     }
     
-    public var formattedEU: String? {
+    public var formattedEU: String {
         return formatDate(eu)
     }
     
-    public var formattedJP: String? {
+    public var formattedJP: String {
         return formatDate(jp)
     }
     
-    public var formattedNA: String? {
+    public var formattedNA: String {
         return formatDate(na)
     }
     
-    private func formatDate(_ dateString: String?) -> String? {
+    private func formatDate(_ dateString: String?) -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd"
         

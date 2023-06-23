@@ -22,8 +22,10 @@ final class ReleaseTests: XCTestCase {
     }
     
     func test_createRelease_formattedAUWithNilValue() {
-        // Arrange - Act
+        // Arrange
         let releaseBuilder = ReleaseDataBuilder()
+        
+        // Act
         let release = Release(au: nil, eu: releaseBuilder.eu, jp: releaseBuilder.jp, na: releaseBuilder.na)
 
         // Assert
@@ -31,8 +33,10 @@ final class ReleaseTests: XCTestCase {
     }
 
     func test_createRelease_formattedEUWithNilValue() {
-        // Arrange - Act
+        // Arrange
         let releaseBuilder = ReleaseDataBuilder()
+        
+        // Act
         let release = Release(au: releaseBuilder.au, eu: nil, jp: releaseBuilder.jp, na: releaseBuilder.na)
         
         // Assert
@@ -40,8 +44,10 @@ final class ReleaseTests: XCTestCase {
     }
     
     func test_createRelease_formattedJPWithNilValue() {
-        // Arrange - Act
+        // Arrange
         let releaseBuilder = ReleaseDataBuilder()
+        
+        // Act
         let release = Release(au: releaseBuilder.au, eu: releaseBuilder.eu, jp: nil, na: releaseBuilder.na)
 
         // Assert
@@ -49,8 +55,10 @@ final class ReleaseTests: XCTestCase {
     }
     
     func test_createRelease_formattedNAWithNilValue() {
-        // Arrange - Act
+        // Arrange
         let releaseBuilder = ReleaseDataBuilder()
+        
+        // Act
         let release = Release(au: releaseBuilder.au, eu: releaseBuilder.eu, jp: releaseBuilder.jp, na: nil)
 
         // Assert

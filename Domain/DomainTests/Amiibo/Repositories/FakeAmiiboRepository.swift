@@ -16,6 +16,7 @@ class FakeAmiiboRepository: AmiiboRepository {
     
     var getDetailReturnValue: AnyPublisher<Amiibo?, Error>!
     var getAmiiboListReturnValue: AnyPublisher<[Amiibo], Error>!
+    var filterAmiiboByTypeReturnValue: AnyPublisher<[Amiibo], Error>!
     var getFavoriteAmiiboListReturnValue: AnyPublisher<[Amiibo], Error>!
     var saveFavoriteReturnValue: AnyPublisher<Void, Error>!
     var deleteFavoriteReturnValue: AnyPublisher<Void, Error>!
@@ -40,6 +41,10 @@ class FakeAmiiboRepository: AmiiboRepository {
     func deleteFavorite(head: String, tail: String) throws -> AnyPublisher<Void, Error> {
         deleteFavoriteCalled = true
         return deleteFavoriteReturnValue
+    }
+    
+    func filerAmiiboByType(type: String) -> AnyPublisher<[Domain.Amiibo], Error> {
+        return filterAmiiboByTypeReturnValue
     }
     
 }

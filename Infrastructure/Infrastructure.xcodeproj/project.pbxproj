@@ -47,6 +47,7 @@
 		EA62DC732A42BA2A009A5C6A /* AmiiboCoreDataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA62DC722A42BA2A009A5C6A /* AmiiboCoreDataRepository.swift */; };
 		EA62DC752A42BA41009A5C6A /* AmiiboAlamofireRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA62DC742A42BA41009A5C6A /* AmiiboAlamofireRepository.swift */; };
 		EA62DC772A42BFB3009A5C6A /* AmiiboDependencyAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA62DC762A42BFB3009A5C6A /* AmiiboDependencyAssembler.swift */; };
+		EA7740702A451D8D00938571 /* GetAmiiboListByTypeRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA77406F2A451D8C00938571 /* GetAmiiboListByTypeRequest.swift */; };
 		EAB442582A432C1E00997003 /* GetAmiiboListRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB442572A432C1E00997003 /* GetAmiiboListRequest.swift */; };
 		EAB4425A2A43309B00997003 /* AmiiboLisResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB442592A43309B00997003 /* AmiiboLisResponse.swift */; };
 		EAB4425C2A43349B00997003 /* GetAmiiboDetailRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB4425B2A43349B00997003 /* GetAmiiboDetailRequest.swift */; };
@@ -124,6 +125,7 @@
 		EA62DC722A42BA2A009A5C6A /* AmiiboCoreDataRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmiiboCoreDataRepository.swift; sourceTree = "<group>"; };
 		EA62DC742A42BA41009A5C6A /* AmiiboAlamofireRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmiiboAlamofireRepository.swift; sourceTree = "<group>"; };
 		EA62DC762A42BFB3009A5C6A /* AmiiboDependencyAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmiiboDependencyAssembler.swift; sourceTree = "<group>"; };
+		EA77406F2A451D8C00938571 /* GetAmiiboListByTypeRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetAmiiboListByTypeRequest.swift; sourceTree = "<group>"; };
 		EAB442572A432C1E00997003 /* GetAmiiboListRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetAmiiboListRequest.swift; sourceTree = "<group>"; };
 		EAB442592A43309B00997003 /* AmiiboLisResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmiiboLisResponse.swift; sourceTree = "<group>"; };
 		EAB4425B2A43349B00997003 /* GetAmiiboDetailRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetAmiiboDetailRequest.swift; sourceTree = "<group>"; };
@@ -461,6 +463,7 @@
 			children = (
 				EAB442572A432C1E00997003 /* GetAmiiboListRequest.swift */,
 				EAB4425B2A43349B00997003 /* GetAmiiboDetailRequest.swift */,
+				EA77406F2A451D8C00938571 /* GetAmiiboListByTypeRequest.swift */,
 			);
 			path = Request;
 			sourceTree = "<group>";
@@ -694,6 +697,7 @@
 				EA4B11A32A42823F00E56F7B /* AmiiboDatabase.swift in Sources */,
 				EA62DC6B2A42B97C009A5C6A /* AmiiboProxy.swift in Sources */,
 				EA62DC6F2A42B9F5009A5C6A /* AmiiboLocalRepository.swift in Sources */,
+				EA7740702A451D8D00938571 /* GetAmiiboListByTypeRequest.swift in Sources */,
 				EA4B11982A427ECB00E56F7B /* Amiibo.xcdatamodeld in Sources */,
 				EA4B11912A427D8100E56F7B /* HttpClient.swift in Sources */,
 				EA4B118D2A427CDE00E56F7B /* HttpClientException.swift in Sources */,

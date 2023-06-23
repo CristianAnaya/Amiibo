@@ -20,6 +20,7 @@
 		EA4B116A2A42646900E56F7B /* AmiiboRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA4B11692A42646900E56F7B /* AmiiboRepository.swift */; };
 		EA4B116C2A42680B00E56F7B /* GetAmiiboDetailUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA4B116B2A42680B00E56F7B /* GetAmiiboDetailUseCase.swift */; };
 		EA4B116E2A426AC100E56F7B /* Release.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA4B116D2A426AC100E56F7B /* Release.swift */; };
+		EA7740722A451ED200938571 /* FilterAmiiboByTypeUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA7740712A451ED200938571 /* FilterAmiiboByTypeUseCase.swift */; };
 		EAB4425E2A433E8F00997003 /* GetAmiiboListUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB4425D2A433E8F00997003 /* GetAmiiboListUseCase.swift */; };
 		EAB442602A433EB900997003 /* GetFavoriteAmiiboListUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB4425F2A433EB900997003 /* GetFavoriteAmiiboListUseCase.swift */; };
 		EAB442622A433EDC00997003 /* SaveAmiiboFavoriteUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB442612A433EDC00997003 /* SaveAmiiboFavoriteUseCase.swift */; };
@@ -64,6 +65,7 @@
 		EA4B11692A42646900E56F7B /* AmiiboRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmiiboRepository.swift; sourceTree = "<group>"; };
 		EA4B116B2A42680B00E56F7B /* GetAmiiboDetailUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetAmiiboDetailUseCase.swift; sourceTree = "<group>"; };
 		EA4B116D2A426AC100E56F7B /* Release.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Release.swift; sourceTree = "<group>"; };
+		EA7740712A451ED200938571 /* FilterAmiiboByTypeUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterAmiiboByTypeUseCase.swift; sourceTree = "<group>"; };
 		EAB4425D2A433E8F00997003 /* GetAmiiboListUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetAmiiboListUseCase.swift; sourceTree = "<group>"; };
 		EAB4425F2A433EB900997003 /* GetFavoriteAmiiboListUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetFavoriteAmiiboListUseCase.swift; sourceTree = "<group>"; };
 		EAB442612A433EDC00997003 /* SaveAmiiboFavoriteUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveAmiiboFavoriteUseCase.swift; sourceTree = "<group>"; };
@@ -156,6 +158,7 @@
 				EAB4425F2A433EB900997003 /* GetFavoriteAmiiboListUseCase.swift */,
 				EAB442612A433EDC00997003 /* SaveAmiiboFavoriteUseCase.swift */,
 				EAB442632A433F1100997003 /* DeleteAmiiboFavoriteUseCase.swift */,
+				EA7740712A451ED200938571 /* FilterAmiiboByTypeUseCase.swift */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -393,6 +396,7 @@
 				EA4B114F2A4258C400E56F7B /* Amiibo.swift in Sources */,
 				EA4B116C2A42680B00E56F7B /* GetAmiiboDetailUseCase.swift in Sources */,
 				EA4B116A2A42646900E56F7B /* AmiiboRepository.swift in Sources */,
+				EA7740722A451ED200938571 /* FilterAmiiboByTypeUseCase.swift in Sources */,
 				EAB4425E2A433E8F00997003 /* GetAmiiboListUseCase.swift in Sources */,
 				EA4B11512A425B8000E56F7B /* LocalizationFramework+Bundle.swift in Sources */,
 				EA4B11572A425D5F00E56F7B /* ArgumentValidator.swift in Sources */,

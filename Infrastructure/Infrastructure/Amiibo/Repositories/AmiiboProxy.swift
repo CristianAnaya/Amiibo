@@ -10,6 +10,7 @@ import Domain
 import Combine
 
 struct AmiiboProxy: AmiiboRepository {
+
     private let amiiboLocalRepository: AmiiboLocalRepository
     private let amiiboRemoteRepository: AmiiboRemoteRepository
     private let networkVerify: NetworkVerify
@@ -42,6 +43,17 @@ struct AmiiboProxy: AmiiboRepository {
                     return Fail(error: NotConnectedToNetworkException()).eraseToAnyPublisher()
                 }
                 return try! amiiboRemoteRepository.getAmiiboList()
+            }
+            .eraseToAnyPublisher()
+    }
+    
+    func filerAmiiboByType(type: String) -> AnyPublisher<[Amiibo], Error> {
+        return networkVerify.hasInternetConnection()
+            .flatMap { isConnected -> AnyPublisher<[Amiibo], Error> in
+                guard isConnected else {
+                    return Fail(error: NotConnectedToNetworkException()).eraseToAnyPublisher()
+                }
+                return amiiboRemoteRepository.filterAmiiboByType(type: type)
             }
             .eraseToAnyPublisher()
     }

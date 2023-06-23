@@ -39,6 +39,27 @@ class AmiiboAlamofireRepository: AmiiboRemoteRepository {
         .eraseToAnyPublisher()
     }
     
+    func filterAmiiboByType(type: String) -> AnyPublisher<[Amiibo], Error> {
+        let request = GetAmiiboListByTypeRequest(object: nil, path: type)
+        
+        return httpClient.requestGeneric(
+            request: request,
+            entity: AmiiboListResponse.self,
+            queue: .global(),
+            retries: 1
+        )
+        .tryMap { amiiboListResponse in
+            return try amiiboListResponse.amiibo.compactMap { amiiboDto in
+                do {
+                    return try AmiiboMapper.fromDtoToDomain(amiiboDto: amiiboDto)
+                } catch {
+                    throw error
+                }
+            }
+        }
+        .eraseToAnyPublisher()
+    }
+    
     func getAmiiboDetail(head: String, tail: String) throws -> AnyPublisher<Amiibo?, Error> {
         let request = GetAmiiboDetailRequest(object: nil, path: "\(head)\(tail)")
         
