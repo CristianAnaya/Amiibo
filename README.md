@@ -64,3 +64,6 @@ Herramienta de gestión de dependencias incorporada en Xcode para la administrac
 ## Version
 
 **Version name :** 1.0
+
+## Recomendaciones
+* El emulador no muestra los teclados del dispositivo, asi que deben escribir mediante el teclado del computador y presionar enter para poder filtrar los amiibos.
