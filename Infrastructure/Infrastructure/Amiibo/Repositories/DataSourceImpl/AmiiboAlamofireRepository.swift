@@ -29,17 +29,13 @@ class AmiiboAlamofireRepository: AmiiboRemoteRepository {
         )
         .tryMap { amiiboListResponse in
             return try amiiboListResponse.amiibo.compactMap { amiiboDto in
-                do {
-                    return try AmiiboMapper.fromDtoToDomain(amiiboDto: amiiboDto)
-                } catch {
-                    throw error
-                }
+                return try AmiiboMapper.fromDtoToDomain(amiiboDto: amiiboDto)
             }
         }
         .eraseToAnyPublisher()
     }
     
-    func filterAmiiboByType(type: String) -> AnyPublisher<[Amiibo], Error> {
+    func filterAmiiboByType(type: String) throws -> AnyPublisher<[Amiibo], Error> {
         let request = GetAmiiboListByTypeRequest(object: nil, path: type)
         
         return httpClient.requestGeneric(
@@ -50,11 +46,7 @@ class AmiiboAlamofireRepository: AmiiboRemoteRepository {
         )
         .tryMap { amiiboListResponse in
             return try amiiboListResponse.amiibo.compactMap { amiiboDto in
-                do {
-                    return try AmiiboMapper.fromDtoToDomain(amiiboDto: amiiboDto)
-                } catch {
-                    throw error
-                }
+                return try AmiiboMapper.fromDtoToDomain(amiiboDto: amiiboDto)
             }
         }
         .eraseToAnyPublisher()

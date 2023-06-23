@@ -15,8 +15,8 @@ public class FilterAmiiboByTypeUseCase {
         self.amiiboRepository = amiiboRepository
     }
     
-    public func invoke(type: String) -> AnyPublisher<[Amiibo], Error>  {
-        return amiiboRepository.filerAmiiboByType(type: type)
+    public func invoke(type: String) throws -> AnyPublisher<[Amiibo], Error>  {
+        return try amiiboRepository.filerAmiiboByType(type: type)
             .flatMap { amiiboList -> AnyPublisher<[Amiibo], Error> in
                 guard !amiiboList.isEmpty else {
                     return Fail(error: AmiiboException.emptyAmiiboList).eraseToAnyPublisher()

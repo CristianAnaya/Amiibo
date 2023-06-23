@@ -49,22 +49,26 @@ final class AmiiboHomeViewModel: AmiiboHomeViewModelProtocol {
     func filterAmiiboByType(type: String) {
         isLoading = true
 
-        filterAmiiboByTypeUseCase.invoke(type: type)
-            .sink { [weak self] completion in
-                guard let self = self else { return }
-
-                self.isLoading = false
-
-                if case let .failure(error) = completion {
-                    self.errorMessage = error.localizedDescription
+        do {
+            try filterAmiiboByTypeUseCase.invoke(type: type)
+                .sink { [weak self] completion in
+                    guard let self = self else { return }
+                    
+                    self.isLoading = false
+                    
+                    if case let .failure(error) = completion {
+                        self.errorMessage = error.localizedDescription
+                    }
+                } receiveValue: { [weak self] amiiboList in
+                    guard let self = self else { return }
+                    
+                    self.isLoading = false
+                    self.amiiboList = amiiboList
                 }
-            } receiveValue: { [weak self] amiiboList in
-                guard let self = self else { return }
-
-                self.isLoading = false
-                self.amiiboList = amiiboList
-            }
-            .store(in: &cancellables)
+                .store(in: &cancellables)
+        } catch {
+            self.errorMessage = error.localizedDescription
+        }
     }
     
 }

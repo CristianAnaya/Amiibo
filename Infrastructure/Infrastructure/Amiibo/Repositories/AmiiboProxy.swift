@@ -47,13 +47,13 @@ struct AmiiboProxy: AmiiboRepository {
             .eraseToAnyPublisher()
     }
     
-    func filerAmiiboByType(type: String) -> AnyPublisher<[Amiibo], Error> {
+    func filerAmiiboByType(type: String) throws -> AnyPublisher<[Amiibo], Error> {
         return networkVerify.hasInternetConnection()
             .flatMap { isConnected -> AnyPublisher<[Amiibo], Error> in
                 guard isConnected else {
                     return Fail(error: NotConnectedToNetworkException()).eraseToAnyPublisher()
                 }
-                return amiiboRemoteRepository.filterAmiiboByType(type: type)
+                return try! amiiboRemoteRepository.filterAmiiboByType(type: type)
             }
             .eraseToAnyPublisher()
     }

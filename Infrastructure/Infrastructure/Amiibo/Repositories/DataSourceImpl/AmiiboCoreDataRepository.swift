@@ -21,11 +21,7 @@ class AmiiboCoreDataRepository: AmiiboLocalRepository {
         return amiiboDao.fetchAll()
             .tryMap { amiiboEntities -> [Amiibo] in
                 return try amiiboEntities.map {
-                    do {
-                        return try AmiiboMapper.fromEntityToDomain(amiiboEntity: $0)
-                    } catch {
-                        throw error
-                    }
+                    return try AmiiboMapper.fromEntityToDomain(amiiboEntity: $0)
                 }
             }
             .eraseToAnyPublisher()
